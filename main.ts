@@ -7,7 +7,8 @@
 // (the screenshots, the first load's files and bytes, and the source),
 // using the vendored make.fun library. vendor/makefun-frontend.ts is left
 // untouched: the scorer requires dossier.json to be byte for byte what its
-// own copy of that library writes.
+// own copy of that library writes. The first screenshot by name is the
+// cover the judge sees first.
 //
 // Run it locally with:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts

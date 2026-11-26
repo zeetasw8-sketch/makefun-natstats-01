@@ -21,6 +21,12 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Axis labels: round to 2 decimals and drop trailing zeros, so a gridline
+// never prints a floating-point tail like 0.9475000000000002.
+function axis(v) {
+  return String(Number(v.toFixed(2)));
+}
+
 // Vertical bars. `data` is [{ label, value }], `unit` is appended to values.
 export function barChart(data, unit = '') {
   const W = 640, H = 300, padL = 56, padR = 16, padT = 28, padB = 34;
@@ -36,7 +42,7 @@ export function barChart(data, unit = '') {
     const v = min + (span * i) / 4;
     const yy = y(v);
     s += `<line x1="${padL}" y1="${yy}" x2="${W - padR}" y2="${yy}" stroke="${GRID}" stroke-width="1"/>`;
-    s += `<text x="${padL - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="${MUTED}">${v}${unit}</text>`;
+    s += `<text x="${padL - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="${MUTED}">${axis(v)}${unit}</text>`;
   }
   s += `<line x1="${padL}" y1="${zeroY}" x2="${W - padR}" y2="${zeroY}" stroke="${INK}" stroke-width="1.5"/>`;
   data.forEach((d, i) => {
@@ -61,7 +67,7 @@ export function lineChart(data, unit = '', fmt = null) {
   const iw = W - padL - padR, ih = H - padT - padB;
   const x = (i) => padL + (iw * i) / (data.length - 1);
   const y = (v) => padT + ih - ((v - min) / (max - min)) * ih;
-  const show = (v) => (fmt ? fmt(v) : `${v}${unit}`);
+  const show = (v) => (fmt ? fmt(v) : `${axis(v)}${unit}`);
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="line chart" class="chart">`;
   for (let i = 0; i <= 4; i++) {
     const v = min + ((max - min) * i) / 4;
