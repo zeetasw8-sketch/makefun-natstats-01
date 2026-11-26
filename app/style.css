@@ -1,0 +1,121 @@
+/* Indonesia in Numbers — clean, fast, readable on desktop and phone. */
+
+:root {
+  --ink: #17324f;
+  --accent: #0b6e4f;
+  --accent-soft: #e3f2ec;
+  --muted: #5d7285;
+  --line: #dbe4ec;
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration-thickness: 2px; }
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.top { background: var(--ink); color: #fff; }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; padding-top: 12px; padding-bottom: 12px; }
+.brand { color: #fff; font-weight: 800; font-size: 19px; text-decoration: none; letter-spacing: -0.01em; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 2px; }
+nav a { color: #c9d8e4; text-decoration: none; padding: 6px 10px; border-radius: 8px; font-size: 15px; }
+nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+nav a.active { color: #fff; background: var(--accent); }
+
+/* Main */
+main.wrap { padding-top: 28px; padding-bottom: 40px; }
+h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; margin: 4px 0 10px; }
+h2 { font-size: 22px; letter-spacing: -0.01em; margin: 0 0 8px; }
+h3 { font-size: 17px; margin: 22px 0 6px; }
+p { margin: 0 0 14px; }
+.lede { font-size: 19px; line-height: 1.5; color: #2c4257; }
+.lede-sub { color: var(--muted); }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+.hero { padding: 8px 0 22px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.muted { color: var(--muted); }
+.source { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+
+/* Key-indicator cards */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 22px; }
+.card {
+  display: block; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 18px; text-decoration: none; color: var(--ink);
+}
+.card:hover { border-color: var(--accent); }
+.card-label { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.card-value { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 2px; }
+.card-note { display: block; font-size: 13px; color: var(--muted); }
+
+/* Panels */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 0 0 22px; }
+.panel > p { max-width: 72ch; }
+.chart { width: 100%; height: auto; display: block; margin: 6px 0 2px; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); font-size: 15px; }
+th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+td.num, th[data-num] { text-align: right; font-variant-numeric: tabular-nums; }
+table.data th { cursor: pointer; user-select: none; white-space: nowrap; }
+table.data th:hover { color: var(--ink); }
+table.data th.sorted { color: var(--accent); }
+table.facts th { width: 34%; }
+
+/* Two-column chart row */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+
+/* Toolbar (regions filter) */
+.toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-bottom: 12px; }
+.toolbar label { font-size: 14px; font-weight: 600; }
+.toolbar input {
+  display: block; margin-top: 4px; padding: 9px 12px; font-size: 15px;
+  border: 1px solid var(--line); border-radius: 8px; width: min(320px, 100%);
+  font-family: inherit; color: var(--ink);
+}
+.toolbar input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.count { font-size: 14px; color: var(--muted); padding-bottom: 10px; }
+
+/* Buttons and lists */
+.btn {
+  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 700; padding: 10px 16px; border-radius: 9px; margin-top: 6px;
+}
+.btn:hover { background: #095c41; }
+ul { margin: 0 0 14px; padding-left: 22px; }
+li { margin-bottom: 8px; }
+li::marker { color: var(--accent); }
+
+/* Footer */
+footer { border-top: 1px solid var(--line); padding: 20px 0 28px; font-size: 14px; }
+footer p { margin: 0 0 6px; }
+
+/* Phone */
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  h1 { font-size: 27px; }
+  .lede { font-size: 17px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card-value { font-size: 22px; }
+  .panel { padding: 16px 16px; }
+  .two { grid-template-columns: 1fr; }
+  .top .wrap { padding-top: 10px; padding-bottom: 10px; }
+  nav a { padding: 5px 8px; font-size: 14px; }
+  table.facts th { width: 42%; }
+}
