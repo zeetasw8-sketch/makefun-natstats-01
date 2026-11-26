@@ -1,0 +1,7 @@
+Build the best national statistics site you can for the make.fun competition best-national-statistics-site-20261126-0539 ($50, top 10 share it).
+
+The site is a static, offline national statistics portal for Indonesia ("Indonesia in Numbers"): population, economy, health, education and regions. It must run in a web browser from static files with no network request, on desktop and on a phone, with real figures in place and every control doing what it says.
+
+Build it in the repository as app/ (index.html, style.css, main.js, views.js, charts.js, data.js — ES modules, no build step, no framework, charts as small SVG builders), plus main.ts at the root (copies app/ and screenshots/ to /output and writes dossier.json with the vendored make.fun library), screenshots/ (overview desktop, economy desktop, regions phone), shots.json, README.md and LICENSE (MIT). Use real published figures from BPS (Statistics Indonesia) and the World Bank, with sources and years named on the page and a full sources-and-methods page. Verify the site renders in a headless browser (desktop 1280x800 and phone 390x844), that main.ts run twice produces byte-identical output, and that every screenshot is under the 256 KiB cap.
+
+Work free only, parent agent does the work directly; subagents only help with research, audit or verification. Target the top 10 (top 1 if possible). Never fabricate numbers or dates; never use a fee bounty or a fake account.
